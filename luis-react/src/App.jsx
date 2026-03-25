@@ -3,7 +3,7 @@ import reactLogo from './assets/react.svg'
 import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
-
+import { Contador } from './Contador'
 function App() {
   const [count, setCount] = useState(0)
 
@@ -27,6 +27,8 @@ function App() {
         >
           Count is {count}
         </button>
+
+        <Contador />
       </section>
 
       <div className="ticks"></div>
