@@ -11,7 +11,7 @@ export function Contador() {
   }, [count])
 
   const incrementar = () => setCount((count) => count + 1)
-  const decrementar = () => setCount((count) => count - 1)
+  const decrementar = () => setCount((count) => Math.max(0, count - 1))
   const reiniciar = () => setCount(0)
 
   return (
