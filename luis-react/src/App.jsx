@@ -4,6 +4,22 @@ import viteLogo from './assets/vite.svg'
 import heroImg from './assets/hero.png'
 import './App.css'
 import { Contador } from './Contador'
+import Table from '@mui/material/Table'
+import TableBody from '@mui/material/TableBody'
+import TableCell from '@mui/material/TableCell'
+import TableContainer from '@mui/material/TableContainer'
+import TableHead from '@mui/material/TableHead'
+import TableRow from '@mui/material/TableRow'
+import Paper from '@mui/material/Paper'
+
+const personas = [
+  { nombre: 'Carlos', apellido: 'Garcia', edad: 15 },
+  { nombre: 'Ana', apellido: 'Lopez', edad: 28 },
+  { nombre: 'Luis', apellido: 'Medina', edad: 22 },
+  { nombre: 'Maria', apellido: 'Hernandez', edad: 17 },
+  { nombre: 'Pedro', apellido: 'Ramirez', edad: 35 },
+  { nombre: 'Sofia', apellido: 'Torres', edad: 19 },
+]
 function App() {
   const [count, setCount] = useState(0)
 
@@ -116,6 +132,27 @@ function App() {
 
       <div className="ticks"></div>
       <section id="spacer"></section>
+
+      <TableContainer component={Paper} sx={{ width: '90%', margin: '20px auto' }}>
+        <Table sx={{ minWidth: 650 }} aria-label="tabla de personas">
+          <TableHead>
+            <TableRow>
+              <TableCell>Nombre</TableCell>
+              <TableCell>Apellido</TableCell>
+              <TableCell>Edad</TableCell>
+            </TableRow>
+          </TableHead>
+          <TableBody>
+            {personas.map((persona, index) => (
+              <TableRow key={index}>
+                <TableCell>{persona.nombre}</TableCell>
+                <TableCell>{persona.apellido}</TableCell>
+                <TableCell>{persona.edad}</TableCell>
+              </TableRow>
+            ))}
+          </TableBody>
+        </Table>
+      </TableContainer>
     </>
   )
 }
