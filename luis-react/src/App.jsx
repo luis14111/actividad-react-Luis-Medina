@@ -133,6 +133,7 @@ function App() {
       <div className="ticks"></div>
       <section id="spacer"></section>
 
+      <h2 style={{ textAlign: 'center', marginTop: '20px' }}>Tabla de Personas</h2>
       <TableContainer component={Paper} sx={{ width: '90%', margin: '20px auto' }}>
         <Table sx={{ minWidth: 650 }} aria-label="tabla de personas">
           <TableHead>
