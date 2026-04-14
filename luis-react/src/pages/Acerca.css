@@ -1,0 +1,151 @@
+/* ===== Acerca de mí Styles ===== */
+.acerca-container {
+  min-height: calc(100vh - 64px);
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  padding: 60px 24px;
+  background: linear-gradient(180deg, #0f3460 0%, #1a1a2e 100%);
+}
+
+.acerca-card {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  border-radius: 20px;
+  padding: 48px 40px;
+  max-width: 600px;
+  width: 100%;
+  text-align: center;
+  animation: fadeInUp 0.7s ease-out;
+}
+
+/* Avatar */
+.acerca-avatar {
+  margin-bottom: 24px;
+}
+
+.avatar-img {
+  width: 130px;
+  height: 130px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 4px solid #e94560;
+  box-shadow: 0 8px 25px rgba(233, 69, 96, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.avatar-img:hover {
+  transform: scale(1.08);
+}
+
+/* Info */
+.acerca-nombre {
+  font-size: 2rem;
+  font-weight: 800;
+  color: #ffffff;
+  margin-bottom: 6px;
+}
+
+.acerca-carrera {
+  font-size: 1rem;
+  color: #e94560;
+  font-weight: 600;
+  margin-bottom: 20px;
+  letter-spacing: 0.5px;
+}
+
+.acerca-bio {
+  color: #a8b2d1;
+  font-size: 1rem;
+  line-height: 1.7;
+  margin-bottom: 32px;
+}
+
+/* Secciones */
+.acerca-seccion {
+  text-align: left;
+  margin-bottom: 28px;
+}
+
+.acerca-seccion h3 {
+  font-size: 1.15rem;
+  color: #ffffff;
+  margin-bottom: 14px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid rgba(233, 69, 96, 0.3);
+}
+
+/* Skills */
+.skills-grid {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.skill-badge {
+  background: linear-gradient(135deg, rgba(233, 69, 96, 0.2), rgba(233, 69, 96, 0.05));
+  color: #ff6b81;
+  padding: 6px 16px;
+  border-radius: 20px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  border: 1px solid rgba(233, 69, 96, 0.25);
+  transition: all 0.3s ease;
+}
+
+.skill-badge:hover {
+  background: linear-gradient(135deg, #e94560, #c23616);
+  color: #ffffff;
+  transform: translateY(-2px);
+  box-shadow: 0 4px 12px rgba(233, 69, 96, 0.4);
+}
+
+/* Intereses */
+.intereses-lista {
+  list-style: none;
+  padding: 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 12px;
+}
+
+.intereses-lista li {
+  color: #a8b2d1;
+  font-size: 0.95rem;
+  padding: 10px 14px;
+  background: rgba(255, 255, 255, 0.03);
+  border-radius: 10px;
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: border-color 0.3s ease;
+}
+
+.intereses-lista li:hover {
+  border-color: rgba(233, 69, 96, 0.3);
+}
+
+/* Animación */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .acerca-card {
+    padding: 32px 20px;
+  }
+
+  .acerca-nombre {
+    font-size: 1.6rem;
+  }
+
+  .intereses-lista {
+    grid-template-columns: 1fr;
+  }
+}
