@@ -1,8 +1,11 @@
-// Página "Acerca de mí" - Información personal de ejemplo
+// Página "Acerca de mí" - Información obtenida desde el contexto AlumnoContext
 import "./Acerca.css";
 import fotoPerfil from "../assets/foto.jpeg";
+import { useAlumnoContext } from "../context/AlumnoContext";
 
 function Acerca() {
+  const { alumno } = useAlumnoContext();
+
   return (
     <div className="acerca-container">
       <div className="acerca-card">
@@ -15,9 +18,12 @@ function Acerca() {
           />
         </div>
 
-        {/* Información personal */}
-        <h1 className="acerca-nombre">Luis Fernando Medina Lizarraga</h1>
-        <p className="acerca-carrera">Licenciatura en Ingeniería en Sistemas de la Informacion</p>
+        {/* Información personal desde el contexto */}
+        <h1 className="acerca-nombre">{alumno.nombre}</h1>
+        <p className="acerca-carrera">{alumno.carrera}</p>
+        <p className="acerca-grupo-semestre">
+          Grupo: <strong>{alumno.grupo}</strong> &nbsp;|&nbsp; Semestre: <strong>{alumno.semestre}</strong>
+        </p>
         <p className="acerca-bio">
           Soy estudiante de la facultad de informatica mazatlan y me gusta el desarrollo web y la tecnología.
           Me interesa crear aplicaciones modernas y funcionales que resuelvan

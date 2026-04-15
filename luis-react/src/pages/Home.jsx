@@ -1,5 +1,6 @@
 // Página principal - Home
 import "./Home.css";
+import PerfilResumen from "../components/PerfilResumen";
 import Table from '@mui/material/Table';
 import TableBody from '@mui/material/TableBody';
 import TableCell from '@mui/material/TableCell';
@@ -31,6 +32,9 @@ function Home() {
           entre páginas sin recargar el navegador.
         </p>
       </section>
+
+      {/* Perfil del alumno obtenido desde el contexto */}
+      <PerfilResumen />
 
       {/* Sección de características */}
       <section className="home-features">
