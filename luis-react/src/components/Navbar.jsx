@@ -35,6 +35,14 @@ function Navbar() {
             Contacto
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/usuarios"
+            className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
+          >
+            Usuarios
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
