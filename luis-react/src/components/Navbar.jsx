@@ -43,6 +43,14 @@ function Navbar() {
             Usuarios
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/mapa"
+            className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
+          >
+            Mapa
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );

@@ -35,7 +35,7 @@
 .navbar-links {
   list-style: none;
   display: flex;
-  gap: 8px;
+  gap: 20px;
   margin: 0;
   padding: 0;
 }
@@ -45,10 +45,11 @@
   color: #a8b2d1;
   font-size: 15px;
   font-weight: 500;
-  padding: 8px 18px;
+  padding: 8px 22px;
   border-radius: 8px;
   transition: all 0.3s ease;
   position: relative;
+  letter-spacing: 0.3px;
 }
 
 .nav-link:hover {
