@@ -6,6 +6,7 @@ import Acerca from "./pages/Acerca";
 import Contacto from "./pages/Contacto";
 import Usuarios from "./pages/Usuarios";
 import Mapa from "./pages/Mapa";
+import RutaGoogleMaps from "./pages/RutaGoogleMaps";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
         <Route path="/contacto" element={<Contacto />} />
         <Route path="/usuarios" element={<Usuarios />} />
         <Route path="/mapa" element={<Mapa />} />
+        <Route path="/ruta-google-maps" element={<RutaGoogleMaps />} />
       </Routes>
     </>
   );

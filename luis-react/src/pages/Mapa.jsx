@@ -1,5 +1,5 @@
 // Página del Mapa - Muestra Google Maps con un marcador en Mazatlán
-import { GoogleMap, LoadScript, Marker, InfoWindow } from '@react-google-maps/api';
+import { GoogleMap, Marker, InfoWindow, useJsApiLoader } from '@react-google-maps/api';
 import { useState } from 'react';
 import './Mapa.css';
 
@@ -17,6 +17,14 @@ const center = {
 function Mapa() {
   const [mostrarInfo, setMostrarInfo] = useState(false);
 
+  // Carga de la API de Google Maps (mismo método que RutaGoogleMaps)
+  const { isLoaded } = useJsApiLoader({
+    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
+  });
+
+  // Mientras carga el mapa
+  if (!isLoaded) return <p className="ruta-loading">Cargando mapa...</p>;
+
   return (
     <div className="mapa-container">
       <div className="mapa-header">
@@ -25,42 +33,40 @@ function Mapa() {
       </div>
 
       <div className="mapa-wrapper">
-        <LoadScript googleMapsApiKey={import.meta.env.VITE_GOOGLE_MAPS_API_KEY}>
-          <GoogleMap
-            mapContainerStyle={containerStyle}
-            center={center}
-            zoom={13}
-            options={{
-              styles: [
-                { elementType: 'geometry', stylers: [{ color: '#1a1a2e' }] },
-                { elementType: 'labels.text.stroke', stylers: [{ color: '#1a1a2e' }] },
-                { elementType: 'labels.text.fill', stylers: [{ color: '#746855' }] },
-                { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#17263c' }] },
-                { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#38414e' }] },
-                { featureType: 'road', elementType: 'geometry.stroke', stylers: [{ color: '#212a37' }] },
-                { featureType: 'poi', elementType: 'geometry', stylers: [{ color: '#263c3f' }] },
-              ]
-            }}
-          >
-            <Marker
-              position={center}
-              onClick={() => setMostrarInfo(true)}
-            />
+        <GoogleMap
+          mapContainerStyle={containerStyle}
+          center={center}
+          zoom={13}
+          options={{
+            styles: [
+              { elementType: 'geometry', stylers: [{ color: '#1a1a2e' }] },
+              { elementType: 'labels.text.stroke', stylers: [{ color: '#1a1a2e' }] },
+              { elementType: 'labels.text.fill', stylers: [{ color: '#746855' }] },
+              { featureType: 'water', elementType: 'geometry', stylers: [{ color: '#17263c' }] },
+              { featureType: 'road', elementType: 'geometry', stylers: [{ color: '#38414e' }] },
+              { featureType: 'road', elementType: 'geometry.stroke', stylers: [{ color: '#212a37' }] },
+              { featureType: 'poi', elementType: 'geometry', stylers: [{ color: '#263c3f' }] },
+            ]
+          }}
+        >
+          <Marker
+            position={center}
+            onClick={() => setMostrarInfo(true)}
+          />
 
-            {mostrarInfo && (
-              <InfoWindow
-                position={center}
-                onCloseClick={() => setMostrarInfo(false)}
-              >
-                <div className="info-window">
-                  <h3>📍 Mazatlán, Sinaloa</h3>
-                  <p>Conocida como "La Perla del Pacífico"</p>
-                  <p><strong>Lat:</strong> 23.2494 | <strong>Lng:</strong> -106.4111</p>
-                </div>
-              </InfoWindow>
-            )}
-          </GoogleMap>
-        </LoadScript>
+          {mostrarInfo && (
+            <InfoWindow
+              position={center}
+              onCloseClick={() => setMostrarInfo(false)}
+            >
+              <div className="info-window">
+                <h3>📍 Mazatlán, Sinaloa</h3>
+                <p>Conocida como "La Perla del Pacífico"</p>
+                <p><strong>Lat:</strong> 23.2494 | <strong>Lng:</strong> -106.4111</p>
+              </div>
+            </InfoWindow>
+          )}
+        </GoogleMap>
       </div>
 
       <div className="mapa-info-cards">
@@ -85,3 +91,4 @@ function Mapa() {
 }
 
 export default Mapa;
+

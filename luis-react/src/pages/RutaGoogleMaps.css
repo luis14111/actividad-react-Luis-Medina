@@ -1,0 +1,134 @@
+/* Estilos de la página Ruta Google Maps */
+.ruta-container {
+  min-height: calc(100vh - 64px);
+  background: linear-gradient(135deg, #0f0c29 0%, #1a1a2e 50%, #16213e 100%);
+  padding: 2rem;
+  color: #fff;
+}
+
+/* Loading */
+.ruta-loading {
+  text-align: center;
+  padding: 4rem 2rem;
+  font-size: 1.2rem;
+  color: #a0aec0;
+  background: linear-gradient(135deg, #0f0c29 0%, #1a1a2e 50%, #16213e 100%);
+  min-height: 100vh;
+}
+
+/* Header */
+.ruta-header {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.ruta-titulo {
+  font-size: 2.4rem;
+  font-weight: 700;
+  line-height: 1.3;
+  padding: 0.1em 0.05em 0.2em;
+  background: linear-gradient(90deg, #7f7fd5, #86a8e7, #91eae4);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.ruta-subtitulo {
+  font-size: 1rem;
+  color: #a0aec0;
+  margin: 0;
+}
+
+/* Botón */
+.ruta-btn {
+  display: block;
+  margin: 0 auto 1.5rem;
+  padding: 0.85rem 2rem;
+  font-size: 1rem;
+  font-weight: 600;
+  color: #fff;
+  background: linear-gradient(135deg, #7f7fd5, #86a8e7);
+  border: none;
+  border-radius: 12px;
+  cursor: pointer;
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+  box-shadow: 0 4px 15px rgba(127, 127, 213, 0.35);
+}
+
+.ruta-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 8px 25px rgba(127, 127, 213, 0.55);
+}
+
+.ruta-btn:active {
+  transform: translateY(0);
+}
+
+/* Contenedor del mapa con efecto glassmorphism */
+.ruta-mapa-wrapper {
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 25px 50px rgba(0, 0, 0, 0.5),
+              0 0 0 1px rgba(255, 255, 255, 0.05);
+  margin-bottom: 2.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+/* Info cards */
+.ruta-info-cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+}
+
+.ruta-info-card {
+  background: rgba(255, 255, 255, 0.05);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 16px;
+  padding: 1.5rem;
+  text-align: center;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.ruta-info-card:hover {
+  transform: translateY(-6px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+  border-color: rgba(127, 127, 213, 0.4);
+}
+
+.ruta-info-icon {
+  font-size: 2.5rem;
+  display: block;
+  margin-bottom: 0.8rem;
+}
+
+.ruta-info-card h3 {
+  font-size: 1.1rem;
+  font-weight: 600;
+  color: #e2e8f0;
+  margin: 0 0 0.5rem 0;
+}
+
+.ruta-info-card p {
+  font-size: 0.9rem;
+  color: #a0aec0;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  .ruta-container {
+    padding: 1rem;
+  }
+
+  .ruta-titulo {
+    font-size: 1.8rem;
+  }
+
+  .ruta-btn {
+    width: 100%;
+  }
+}
