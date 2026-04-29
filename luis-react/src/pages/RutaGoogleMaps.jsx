@@ -13,8 +13,8 @@ import "./RutaGoogleMaps.css";
 
 // Coordenadas del punto de inicio: FIMAZ
 const origen = {
-  lat: 23.2446,
-  lng: -106.4345,
+  lat: 23.23156418615661,
+  lng: -106.42652057583466,
 };
 
 // Coordenadas del destino: Plazuela Machado
@@ -32,6 +32,7 @@ const containerStyle = {
 export default function RutaGoogleMaps() {
   // Estado donde guardamos la ruta
   const [directions, setDirections] = useState(null);
+  const [travelMode, setTravelMode] = useState("DRIVING");
 
   // Carga de la API de Google Maps
   const { isLoaded } = useJsApiLoader({
@@ -57,7 +58,7 @@ export default function RutaGoogleMaps() {
         destination: destino, // Punto final (Machado)
 
         // Tipo de transporte
-        travelMode: window.google.maps.TravelMode.DRIVING,
+        travelMode: window.google.maps.TravelMode[travelMode],
       },
       (result, status) => {
         if (status === "OK") {
@@ -84,10 +85,21 @@ export default function RutaGoogleMaps() {
         </p>
       </div>
 
-      {/* Botón para generar la ruta */}
-      <button onClick={calcularRuta} className="ruta-btn">
-        📍 Calcular ruta
-      </button>
+      {/* Controles para generar la ruta y cambiar transporte */}
+      <div className="ruta-controls">
+        <select 
+          value={travelMode} 
+          onChange={(e) => setTravelMode(e.target.value)}
+          className="ruta-select"
+        >
+          <option value="DRIVING">Automóvil</option>
+          <option value="WALKING">A pie</option>
+          <option value="BICYCLING">Bicicleta</option>
+        </select>
+        <button onClick={calcularRuta} className="ruta-btn">
+          📍 Calcular ruta
+        </button>
+      </div>
 
       {/* Mapa */}
       <div className="ruta-mapa-wrapper">
@@ -120,9 +132,19 @@ export default function RutaGoogleMaps() {
           <p>Icónica plaza en el centro histórico de Mazatlán.</p>
         </div>
         <div className="ruta-info-card">
-          <span className="ruta-info-icon">🚗</span>
+          <span className="ruta-info-icon">
+            {travelMode === "DRIVING" ? "🚗" : travelMode === "WALKING" ? "🚶" : "🚴"}
+          </span>
           <h3>Modo de transporte</h3>
-          <p>La ruta se calcula en modo DRIVING (automóvil).</p>
+          <p>
+            La ruta se calcula en modo{" "}
+            {travelMode === "DRIVING"
+              ? "Automóvil"
+              : travelMode === "WALKING"
+              ? "A pie"
+              : "Bicicleta"}
+            .
+          </p>
         </div>
       </div>
     </div>

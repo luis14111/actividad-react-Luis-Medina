@@ -40,10 +40,51 @@
   margin: 0;
 }
 
-/* Botón */
+/* Controles y Botón */
+.ruta-controls {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.5rem;
+}
+
+@media (min-width: 600px) {
+  .ruta-controls {
+    flex-direction: row;
+    justify-content: center;
+  }
+}
+
+.ruta-select {
+  padding: 0.85rem 1.5rem;
+  font-size: 1rem;
+  font-family: inherit;
+  font-weight: 500;
+  color: #fff;
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  border-radius: 12px;
+  outline: none;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  transition: all 0.3s ease;
+}
+
+.ruta-select:focus,
+.ruta-select:hover {
+  border-color: rgba(127, 127, 213, 0.8);
+  box-shadow: 0 0 15px rgba(127, 127, 213, 0.3);
+  background: rgba(255, 255, 255, 0.1);
+}
+
+.ruta-select option {
+  background: #1a1a2e;
+  color: #fff;
+}
+
 .ruta-btn {
   display: block;
-  margin: 0 auto 1.5rem;
   padding: 0.85rem 2rem;
   font-size: 1rem;
   font-weight: 600;
