@@ -64,7 +64,7 @@ function Navbar() {
             to="/drawing-map"
             className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
           >
-            Drawing Map
+            Dibujar en Mapa
           </NavLink>
         </li>
       </ul>
