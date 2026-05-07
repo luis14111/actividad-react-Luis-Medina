@@ -1,5 +1,6 @@
 // Página del Mapa - Muestra Google Maps con un marcador en Mazatlán
-import { GoogleMap, Marker, InfoWindow, useJsApiLoader } from '@react-google-maps/api';
+import { GoogleMap, Marker, InfoWindow } from '@react-google-maps/api';
+import { useGoogleMaps } from '../useGoogleMaps';
 import { useState } from 'react';
 import './Mapa.css';
 
@@ -18,9 +19,7 @@ function Mapa() {
   const [mostrarInfo, setMostrarInfo] = useState(false);
 
   // Carga de la API de Google Maps (mismo método que RutaGoogleMaps)
-  const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
-  });
+  const { isLoaded } = useGoogleMaps();
 
   // Mientras carga el mapa
   if (!isLoaded) return <p className="ruta-loading">Cargando mapa...</p>;

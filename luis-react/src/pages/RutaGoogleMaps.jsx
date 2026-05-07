@@ -6,8 +6,8 @@ import {
   GoogleMap,
   Marker,
   DirectionsRenderer,
-  useJsApiLoader,
 } from "@react-google-maps/api";
+import { useGoogleMaps } from "../useGoogleMaps";
 
 import "./RutaGoogleMaps.css";
 
@@ -35,10 +35,7 @@ export default function RutaGoogleMaps() {
   const [travelMode, setTravelMode] = useState("DRIVING");
 
   // Carga de la API de Google Maps
-  const { isLoaded } = useJsApiLoader({
-    googleMapsApiKey: import.meta.env.VITE_GOOGLE_MAPS_API_KEY,
-    libraries: ["routes", "places"], // Necesario para DirectionsService
-  });
+  const { isLoaded } = useGoogleMaps();
 
   // Función para calcular la ruta
   const calcularRuta = () => {

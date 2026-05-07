@@ -59,6 +59,14 @@ function Navbar() {
             Ruta Google Maps
           </NavLink>
         </li>
+        <li>
+          <NavLink
+            to="/drawing-map"
+            className={({ isActive }) => (isActive ? "nav-link active" : "nav-link")}
+          >
+            Drawing Map
+          </NavLink>
+        </li>
       </ul>
     </nav>
   );
